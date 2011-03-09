@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:WindowedApplication xmlns:fx="http://ns.adobe.com/mxml/2009" 
+					   xmlns:s="library://ns.adobe.com/flex/spark" 
+					   xmlns:mx="library://ns.adobe.com/flex/mx" 
+					   width="1020" height="730" showStatusBar="false"
+					   initialize="AppInit();">
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	
+	<fx:Script>
+		<![CDATA[
+			import com.vjx.ui.MasterControls;
+			import com.vjx.ui.MediaBrowser;
+			import com.vjx.ui.SampleBank;
+			import com.vjx.ui.TrackControls;
+			
+			import com.vjx.mixer.Output;
+			import com.vjx.mixer.Sample;
+			import com.vjx.mixer.Track;
+						
+			private var sbControls:SampleBank = new SampleBank();
+			private var browserControls:MediaBrowser = new MediaBrowser();
+			private var trackControls:TrackControls = new TrackControls();
+				
+			private var sample01:Sample = new Sample();
+			private var sample02:Sample = new Sample();
+			private var sample03:Sample = new Sample();
+			private var sample04:Sample = new Sample();
+			private var sample05:Sample = new Sample();
+			private var sample06:Sample = new Sample();
+			private var sample07:Sample = new Sample();
+			private var sample08:Sample = new Sample();
+			private var sample09:Sample = new Sample();
+			private var sample10:Sample = new Sample();
+			private var sample11:Sample = new Sample();
+			private var sample12:Sample = new Sample();
+			private var sample13:Sample = new Sample();
+			private var sample14:Sample = new Sample();
+			private var sample15:Sample = new Sample();
+			private var sample16:Sample = new Sample();	
+			
+			private var track01:Track = new Track();
+			private var track02:Track = new Track();
+			private var track03:Track = new Track();
+			
+			private var output:Output = new Output();
+			
+			private function AppInit():void {
+				browser.extensions = browserControls.contentTypes;
+			}
+			
+		]]>
+	</fx:Script>
+	
+	<!-- Track 01 -->
+	<s:Group x="10" y="10" width="180" height="408">
+		<s:Label  text="Track 01" fontWeight="bold" fontSize="22" x="10" y="7" click="trackControls.SelectTrack(01)" />
+		
+		<s:BorderContainer x="9" y="29" width="162" height="122" borderColor="#151515" backgroundColor="#000000" click="trackControls.SelectTrack(01)" id="t1_monitor">
+			<mx:Image  x="0" y="0" width="160" height="120" />
+		</s:BorderContainer>
+		
+		<mx:ProgressBar x="10" y="149" width="160" labelPlacement="right" labelWidth="0" horizontalGap="0" id="t1_progBar"/>
+		
+		<s:ButtonBar x="10" y="172" width="82" selectedIndex="1" id="t01_direct">
+			<mx:ArrayCollection>
+				<fx:String>BK</fx:String>
+				<fx:String>FW</fx:String>
+			</mx:ArrayCollection>
+		</s:ButtonBar>
+		
+		<s:ToggleButton label="Play" x="99" y="172" id="t01_play"/>
+		
+		<s:Label x="10" y="211" text="Speed" fontWeight="bold"/>
+		<s:HSlider x="64" y="212" minimum="0" maximum="4" stepSize="0.1" snapInterval="0.1" value="1" dataTipFormatFunction="trackControls.TrackHSliderToolTip" id="t01_speed"/>
+		
+		<s:Label x="10" y="230" text="Scale" fontWeight="bold"/>
+		<s:HSlider x="64" y="232" minimum="0" maximum="4" stepSize="0.1" snapInterval="0.1" value="1" dataTipFormatFunction="trackControls.TrackHSliderToolTip" id="t01_scale"/>
+		
+		<s:Label x="10" y="257" text="Loop" fontWeight="bold"/>
+		<s:CheckBox  x="64" y="250" fontWeight="bold" selected="true" id="t1_loop"/>
+		
+		<s:List x="10" y="279" width="116" height="104" id="t1_blendMode" selectedIndex="0" selectionColor="#A8C6EE">
+			<s:ArrayCollection>
+				<fx:String>Add</fx:String>
+				<fx:String>Alpha</fx:String>
+				<fx:String>Colour Burn</fx:String>
+				<fx:String>Darken</fx:String>
+				<fx:String>Difference</fx:String>
+				<fx:String>Hard Light</fx:String>
+				<fx:String>Invert</fx:String>
+				<fx:String>Lighten</fx:String>
+				<fx:String>Multiply</fx:String>
+				<fx:String>Soft Light</fx:String>
+				<fx:String>Subtract</fx:String>
+			</s:ArrayCollection>
+		</s:List>
+		
+		<s:Label x="152" y="362" text="Blend / Mix" rotationZ="-90" fontWeight="bold"/>
+		<s:VSlider  x="135" y="279" height="104" minimum="0" maximum="100" value="100" stepSize="1" id="t1_blend" dataTipFormatFunction="trackControls.TrackVSliderToolTip"/>
+	</s:Group>
+	
+	<!-- Track 02 -->
+	<s:Group x="216" y="10" width="180" height="408">
+		<s:Label  text="Track 01" fontWeight="bold" fontSize="22" x="10" y="7" click="trackControls.SelectTrack(02)" />
+		
+		<s:BorderContainer x="9" y="29" width="162" height="122" borderColor="#151515" backgroundColor="#000000" click="trackControls.SelectTrack(02)" id="t2_monitor">
+			<mx:Image  x="0" y="0" width="160" height="120"/>
+		</s:BorderContainer>
+			
+		<mx:ProgressBar x="10" y="149" width="160" labelPlacement="right" labelWidth="0" horizontalGap="0" id="t2_progBar"/>
+		
+		<s:ButtonBar x="10" y="172" width="82" selectedIndex="1" id="t02_direct">
+			<mx:ArrayCollection>
+				<fx:String>BK</fx:String>
+				<fx:String>FW</fx:String>
+			</mx:ArrayCollection>
+		</s:ButtonBar>
+		
+		<s:ToggleButton label="Play" x="99" y="172" id="t02_play"/>
+		
+		<s:Label x="10" y="211" text="Speed" fontWeight="bold"/>
+		<s:HSlider x="64" y="212" minimum="0" maximum="4" stepSize="0.1" snapInterval="0.1" value="1" dataTipFormatFunction="trackControls.TrackHSliderToolTip" id="t02_speed"/>
+		
+		<s:Label x="10" y="230" text="Scale" fontWeight="bold"/>
+		<s:HSlider x="64" y="232" minimum="0" maximum="4" stepSize="0.1" snapInterval="0.1" value="1" dataTipFormatFunction="trackControls.TrackHSliderToolTip" id="t02_scale"/>
+		
+		<s:Label x="10" y="257" text="Loop" fontWeight="bold"/>
+		<s:CheckBox  x="64" y="250" fontWeight="bold" selected="true" id="t2_loop"/>
+		
+		<s:List x="10" y="279" width="116" height="104" id="t2_blendMode" selectedIndex="0">
+			<s:ArrayCollection>
+				<fx:String>Add</fx:String>
+				<fx:String>Alpha</fx:String>
+				<fx:String>Colour Burn</fx:String>
+				<fx:String>Darken</fx:String>
+				<fx:String>Difference</fx:String>
+				<fx:String>Hard Light</fx:String>
+				<fx:String>Invert</fx:String>
+				<fx:String>Lighten</fx:String>
+				<fx:String>Multiply</fx:String>
+				<fx:String>Soft Light</fx:String>
+				<fx:String>Subtract</fx:String>
+			</s:ArrayCollection>
+		</s:List>
+		
+		<s:Label x="152" y="362" text="Blend / Mix" rotationZ="-90" fontWeight="bold"/>
+		<s:VSlider  x="135" y="279" height="104" minimum="0" maximum="100" value="40" stepSize="1" id="t2_blend" dataTipFormatFunction="trackControls.TrackVSliderToolTip"/>
+	</s:Group>
+	
+	<!-- Track 03 -->
+	<s:Group x="423" y="11" width="180" height="408">
+		<s:Label  text="Track 01" fontWeight="bold" fontSize="22" x="10" y="7" click="trackControls.SelectTrack(03)" />
+		
+		<s:BorderContainer x="9" y="29" width="162" height="122" borderColor="#151515" backgroundColor="#000000" click="trackControls.SelectTrack(03)" id="t3_monitor">
+			<mx:Image  x="0" y="0" width="160" height="120"/>
+		</s:BorderContainer>
+		
+		<mx:ProgressBar x="10" y="149" width="160" labelPlacement="right" labelWidth="0" horizontalGap="0" id="t3_progBar"/>
+		
+		<s:ButtonBar x="10" y="172" width="82" selectedIndex="1" id="t03_direct">
+			<mx:ArrayCollection>
+				<fx:String>BK</fx:String>
+				<fx:String>FW</fx:String>
+			</mx:ArrayCollection>
+		</s:ButtonBar>
+		
+		<s:ToggleButton label="Play" x="99" y="172" id="t03_play"/>
+		
+		<s:Label x="10" y="211" text="Speed" fontWeight="bold"/>
+		<s:HSlider x="64" y="212" minimum="0" maximum="4" stepSize="0.1" snapInterval="0.1" value="1" dataTipFormatFunction="trackControls.TrackHSliderToolTip" id="t03_speed"/>
+		
+		<s:Label x="10" y="230" text="Scale" fontWeight="bold"/>
+		<s:HSlider x="64" y="232" minimum="0" maximum="4" stepSize="0.1" snapInterval="0.1" value="1" dataTipFormatFunction="trackControls.TrackHSliderToolTip" id="t03_scale"/>
+		
+		<s:Label x="10" y="257" text="Loop" fontWeight="bold"/>
+		<s:CheckBox  x="64" y="250" fontWeight="bold" selected="true" id="t3_loop"/>
+		
+		<s:List x="10" y="279" width="116" height="104" id="t3_blendMode" selectedIndex="0">
+			<s:ArrayCollection>
+				<fx:String>Add</fx:String>
+				<fx:String>Alpha</fx:String>
+				<fx:String>Colour Burn</fx:String>
+				<fx:String>Darken</fx:String>
+				<fx:String>Difference</fx:String>
+				<fx:String>Hard Light</fx:String>
+				<fx:String>Invert</fx:String>
+				<fx:String>Lighten</fx:String>
+				<fx:String>Multiply</fx:String>
+				<fx:String>Soft Light</fx:String>
+				<fx:String>Subtract</fx:String>
+			</s:ArrayCollection>
+		</s:List>
+		
+		<s:Label x="152" y="362" text="Blend / Mix" rotationZ="-90" fontWeight="bold"/>
+		<s:VSlider  x="135" y="279" height="104" minimum="0" maximum="100" value="40" stepSize="1" id="t3_blend" dataTipFormatFunction="trackControls.TrackVSliderToolTip"/>
+	</s:Group>
+	
+	<!-- Master Preveiw Monitor -->
+	
+	<s:BorderContainer x="675" y="24" width="322" height="242" borderColor="#151515" backgroundColor="#000000" id="outputMonitor">
+		<s:VideoDisplay  id="layer3" x="0" y="0" width="320" height="240" depth="3" />
+		<s:VideoDisplay  id="layer2" x="0" y="0" width="320" height="240" depth="2" />
+		<s:VideoDisplay  id="layer1" x="0" y="0" width="320" height="240" depth="1" />
+	</s:BorderContainer>
+	
+	
+	<!-- Master Transport/Image controls -->
+	<s:ButtonBar x="675" y="275" width="82" selectedIndex="1" id="t0">
+		<mx:ArrayCollection>
+			<fx:String>BK</fx:String>
+			<fx:String>FW</fx:String>
+		</mx:ArrayCollection>
+	</s:ButtonBar>
+	<s:ToggleButton label="Play" x="764" y="275" id="t1"/>
+	<s:HSlider x="842" y="274" width="155"/>
+	<s:Label x="901" y="285" text="Speed" fontWeight="bold"/>
+	<s:HSlider x="842" y="305" width="155"/>
+	<s:Label x="903" y="316" text="Scale" fontWeight="bold"/>
+	<s:HSlider x="842.5" y="336" width="155"/>
+	<s:Label x="898" y="347" text="Opacity" fontWeight="bold"/>
+	
+	<!-- Sample Bank -->
+	
+	<s:Label x="20" y="426" text="Sample Bank" fontWeight="bold"/>
+	<mx:HRule x="20" y="440" width="257"/>
+	
+	<s:Group x="20" y="450" width="257">	
+		<s:BorderContainer id="sampleTrigger01" x="0" y="0" width="58" height="58" borderColor="#929292" backgroundColor="#929292" cornerRadius="5" 
+						   click="sbControls.SelectSample(01)" 
+						   dragOver="sbControls.dragOverHandler(event);"
+						   dragDrop="sbControls.dragDropHandler(event);"
+						   dragExit="sbControls.dragExitHandler(event);"/>
+			
+		
+		<s:BorderContainer id="sampleTrigger02" x="66" y="0" width="58" height="58" borderColor="#929292" backgroundColor="#929292" cornerRadius="5" click="sbControls.SelectSample(02)" />
+			
+		
+		<s:BorderContainer id="sampleTrigger03" x="132" y="0" width="58" height="58" borderColor="#929292" backgroundColor="#929292" cornerRadius="5" click="sbControls.SelectSample(03)" />
+			
+		
+		<s:BorderContainer id="sampleTrigger04" x="198" y="0" width="58" height="58" borderColor="#929292" backgroundColor="#929292" cornerRadius="5" click="sbControls.SelectSample(04)" />
+
+		
+		<s:BorderContainer id="sampleTrigger05" x="0" y="66" width="58" height="58" borderColor="#929292" backgroundColor="#929292" cornerRadius="5" click="sbControls.SelectSample(05)" />
+			
+		
+		<s:BorderContainer id="sampleTrigger06" x="66" y="66" width="58" height="58" borderColor="#929292" backgroundColor="#929292" cornerRadius="5" click="sbControls.SelectSample(06)" />
+			
+		
+		<s:BorderContainer id="sampleTrigger07" x="132" y="66" width="58" height="58" borderColor="#929292" backgroundColor="#929292" cornerRadius="5" click="sbControls.SelectSample(07)" />
+			
+		
+		<s:BorderContainer id="sampleTrigger08" x="198" y="66" width="58" height="58" borderColor="#929292" backgroundColor="#929292" cornerRadius="5" click="sbControls.SelectSample(08)" />
+				
+		
+		<s:BorderContainer id="sampleTrigger09" x="0" y="132" width="58" height="58" borderColor="#929292" backgroundColor="#929292" cornerRadius="5" click="sbControls.SelectSample(09)" />
+			
+		
+		<s:BorderContainer id="sampleTrigger10" x="66" y="132" width="58" height="58" borderColor="#929292" backgroundColor="#929292" cornerRadius="5" click="sbControls.SelectSample(10)" />
+			
+		
+		<s:BorderContainer id="sampleTrigger11" x="132" y="132" width="58" height="58" borderColor="#929292" backgroundColor="#929292" cornerRadius="5" click="sbControls.SelectSample(11)" />
+			
+		
+		<s:BorderContainer id="sampleTrigger12" x="198" y="132" width="58" height="58" borderColor="#929292" backgroundColor="#929292" cornerRadius="5" click="sbControls.SelectSample(12)" />
+				
+		
+		<s:BorderContainer id="sampleTrigger13" x="0" y="198" width="58" height="58" borderColor="#929292" backgroundColor="#929292" cornerRadius="5" click="sbControls.SelectSample(13)" />
+			
+		
+		<s:BorderContainer id="sampleTrigger14" x="66" y="198" width="58" height="58" borderColor="#929292" backgroundColor="#929292" cornerRadius="5" click="sbControls.SelectSample(14)" />
+			
+		
+		<s:BorderContainer id="sampleTrigger15" x="132" y="198" width="58" height="58" borderColor="#929292" backgroundColor="#929292" cornerRadius="5" click="sbControls.SelectSample(15)" />
+			
+		
+		<s:BorderContainer id="sampleTrigger16" x="198" y="198" width="58" height="58" borderColor="#929292" backgroundColor="#929292" cornerRadius="5" click="sbControls.SelectSample(16)" />		
+	</s:Group>
+	
+	<!-- Step Sequencer -->
+	
+	<s:Label x="295" y="426" text="Step Sequencer" fontWeight="bold"/>
+	<mx:HRule x="295" y="440" width="360"/>
+	
+	<s:Group x="295" y="450" width="360" height="256">
+		
+		<!-- Sequencer Speed/BPM control -->
+		
+		<s:Label x="0" y="168" text="BPM" fontWeight="bold"/>
+		<s:NumericStepper id="bpm_stepper" value="120" stepSize="1" minimum="20" maximum="999" x="35" y="159" width="69"/>
+		
+		<s:Label x="186" y="168" text="MIDI Clock Sync" fontWeight="bold"/>
+		<s:ToggleButton label="ON" x="285" y="159" id="midiClock_toggle" selected="false" width="75" height="23"/>
+		
+		<!-- MIDI Ports control -->
+		
+		<s:Label x="0" y="208" text="MIDI Ports" fontWeight="bold"/>
+		<mx:HRule x="0" y="223" width="360"/>
+		
+		<s:Label x="0" y="240" text="IN" fontWeight="bold"/>
+		<s:DropDownList x="17" y="233" width="145"></s:DropDownList>
+		
+		<s:Label x="186" y="240" text="OUT" fontWeight="bold"/>
+		<s:DropDownList x="215" y="233" width="145"></s:DropDownList>		
+	</s:Group>
+	
+	<!-- Media Browser -->
+	<s:Label x="676" y="362" text="Media Browser" fontWeight="bold"/>
+	<mx:FileSystemTree  x="675" y="377" width="322" height="329" 
+						id="browser" showIcons="true" showHidden="false" 
+						showExtensions="true" enabled="true" 
+						dragEnabled="true" dragMoveEnabled="true"
+						dragStart="browserControls.onFileDragStart(event)"
+						borderColor="#CCCCCC" />
+	
+</s:WindowedApplication>
